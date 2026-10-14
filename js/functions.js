@@ -26,3 +26,19 @@ isPalindrome('ДовОд'); // true
 isPalindrome('Кекс');  // false
 // Это палиндром
 isPalindrome('Лёша на полке клопа нашёл '); // true
+
+function checkMeetingTime(startWork, endWork, startMeeting, duration) {
+  // Вспомогательная функция для перевода времени в минуты
+  const toMinutes = (timeString) => {
+    const [hours, minutes] = timeString.split(':').map(Number);
+    return hours * 60 + minutes;
+  };
+
+  const workStartMinutes = toMinutes(startWork);
+  const workEndMinutes = toMinutes(endWork);
+  const meetingStartMinutes = toMinutes(startMeeting);
+  const meetingEndMinutes = meetingStartMinutes + duration;
+
+  return meetingStartMinutes >= workStartMinutes && meetingEndMinutes <= workEndMinutes;
+}
+checkMeetingTime('08:00', '17:30', '14:00', 90);
