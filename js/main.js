@@ -1,3 +1,4 @@
+import { renderThumbnails } from './thumbnails.js';
 import { getRandomInteger, getRandomArrayElement } from './util.js';
 import { NAMES, MESSAGES, DESCRIPTIONS } from './data.js';
 
@@ -31,5 +32,5 @@ const createPhoto = (index) => {
   };
 };
 
-// eslint-disable-next-line no-unused-vars
 const photos = Array.from({ length: 25 }, (_, index) => createPhoto(index));
+renderThumbnails(photos);
